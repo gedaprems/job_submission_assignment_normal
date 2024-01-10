@@ -32,8 +32,7 @@ const upload = multer({
     }
 })
 
-
+const uploadMiddleware = upload.single("video");
 module.exports = {
-    storage,
-    upload
+    uploadMiddleware
 }

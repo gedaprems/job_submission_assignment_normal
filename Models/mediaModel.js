@@ -5,11 +5,11 @@ const MediaSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    videourl : {
+    videofilename : {
         type: String,
         required: true,
     },
-    subtitleurl : {
+    subtitlefilename : {
         type: String,
         required: true,
     },

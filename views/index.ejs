@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .sec{
+            width: 28px;
+        }
+
+        .middle {
+            text-align: center;
+            margin: 100px auto;
+        }
+
+        .timeInputs {
+            margin: 5px auto;
+        }
+
+        .milisec {
+            width: 38px;
+        }
+
+        #error{
+            color: red;
+            font-weight: 600;
+            background-color: rgb(255, 201, 136);
+        }
+    </style>    
+    <title>Index</title>
+</head>
+
+<body>
+    <p id="error"></p>
+    <form action="/api/v1/media/create/" method="POST" enctype="multipart/form-data" onsubmit="" >
+        <input type="type" name="name" required>
+        <input type="file" id="file" name="video" accept='.mp4, .mkv' required onchange="checkFileType()">
+        <br/>
+        <textarea name="subtitle" id="finalStr" cols="35" rows="15" placeholder="The input format must be " readonly required></textarea>
+        
+        <br />
+
+        <button onclick="submit()">Upload</button>
+    </form>
+
+    <div>
+        <div class="timeInputs" id="timeRange">
+            <input type="text" id='startHH' class="sec"/> : <input type="text" id='startMM' class="sec" /> : <input type="text"
+                id='startSS' class="sec"/> . <input type="text" id='startMS' class="milisec" />
+            &nbsp;--&gt;&nbsp;
+            <input type="text" id='endHH' class="sec"/> : <input type="text" id='endMM' class="sec"/> : <input type="text"
+                id='endSS' class="sec"/> . <input type="text" id='endMS' class="milisec" />
+        </div>
+        <textarea name="subtitleLineInput" id="currline" cols="35" rows="5"
+            placeholder="Write your subtitle for spedified time frame"></textarea>
+        <br />
+        <button class="btn btn-primary" onclick="add()">Add Line</button>
+        <br />
+        
+        
+    </div>
+    <script>
+        function checkFileType(){
+            let video = document.getElementById("file");
+            let error = document.getElementById("error");
+            let filePath = video.value;
+            let ext = filePath.split('.').pop();
+
+            if(ext !== "mp4" && ext !== "mkv"){
+                error.innerHTML = "Please select file with .mp4 or .mkv extension";
+                video.value = video.defaultValue;
+            }else{
+                error.innerHTML = "";
+            }
+            
+            console.log();
+        }
+        function add(){
+            
+            const startHH = document.getElementById("startHH").value;
+            const startMM = document.getElementById("startMM").value;
+            const startSS = document.getElementById("startSS").value;
+            const startMS = document.getElementById("startMS").value;
+            const endHH = document.getElementById("endHH").value;
+            const endSS = document.getElementById("endSS").value;
+            const endMM = document.getElementById("endMM").value;
+            const endMS = document.getElementById("endMS").value;
+            const currline = document.getElementById("currline").value;
+
+
+            let finalStr = `${startHH}:${startMM}:${startSS}.${startMS} --> ${endHH}:${endMM}:${endSS}.${endMS}\n${currline}\n`;
+            console.log(finalStr);
+
+            document.getElementById("finalStr").value += finalStr + "\n";
+            document.getElementById("finalStr2").value += finalStr2 + "\n";
+            
+        }
+    </script>
+</body>
+
+</html>
