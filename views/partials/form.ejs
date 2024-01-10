@@ -1,30 +1,39 @@
-<p id="error" class="error"></p>
-<form action="/api/v1/media/create/" method="POST" enctype="multipart/form-data" onsubmit="">
-    <input type="type" name="name" required>
-    <input type="file" id="file" name="video" accept='.mp4, .mkv' required onchange="checkFileType()">
-    <br />
-    <textarea name="subtitle" id="finalStr" cols="35" rows="15" placeholder="The input format must be in below format &nbsp; &nbsp; 00:00:23.000 --&gt; 00:00:26.000  Your Subtitle" readonly
-        required></textarea>
+<div class="form-group">
+    <p id="error" class="error"></p>
+    <form action="/api/v1/media/create/" method="POST" enctype="multipart/form-data" onsubmit="">
+        <input type="type" name="name" class="form-control" required>
+        <input type="file" id="file" name="video" accept='.mp4, .mkv' class="form-control" required onchange="checkFileType()">
+        <br />
+        <textarea name="subtitle" class="form-control" id="finalStr" cols="35" rows="15"
+            placeholder="The input format must be in below format &nbsp; &nbsp; 00:00:23.000 --&gt; 00:00:26.000  Your Subtitle"
+            readonly required></textarea>
 
-    <br />
+        <br />
 
-    <button onclick="submit(e)">Upload</button>
-</form>
+        <button onclick="submit(e)" class="btn btn-primary">Upload</button>
+    </form>
 
-<div>
-    <p id="scriptError" class="error"></p>
-    <div class="timeInputs" id="timeRange">
-        <input type="text" id='startHH' class="sec" maxlength="2" required/> : <input type="text" id='startMM' class="sec" maxlength="2" required/> :
-        <input type="text" id='startSS' class="sec" maxlength="2" required/> . <input type="text" id='startMS' class="milisec" maxlength="3" required/>
-        &nbsp;--&gt;&nbsp;
-        <input type="text" id='endHH' class="sec" maxlength="2" required/> : <input type="text" id='endMM' class="sec" maxlength="2" required/>
-        : <input type="text" id='endSS' class="sec" maxlength="2" required/> . <input type="text" id='endMS' class="milisec" maxlength="3" required/>
+    <div >
+        <p id="scriptError" class="error"></p>
+        <div class="timeInputs" id="timeRange">
+            <input type="text" id='startHH' maxlength="2" class="sec" required /> : <input type="text" class="sec" id='startMM'
+               maxlength="2" required /> :
+            <input type="text" id='startSS' maxlength="2" class="sec" required /> . <input type="text" id='startMS'
+                 maxlength="3" class="milisec " required />
+            &nbsp;--&gt;&nbsp;
+            <input type="text" id='endHH' maxlength="2" class="sec " required /> : <input type="text" id='endMM'
+                 maxlength="2" class="sec " required />
+            : <input type="text" id='endSS' maxlength="2" class="sec " required /> . <input type="text" id='endMS'
+                 maxlength="3" class="milisec " required />
+            &nbsp;&nbsp;&nbsp; <button class="btn btn-primary" onclick="addSubtitle()">Add</button>
+        </div>
+        <textarea name="subtitleLineInput" class="form-control" id="currline" cols="35" rows="5"
+            placeholder="Write your subtitle for spedified time frame"></textarea>
+        <br />
+        
+        <br />
+
+
     </div>
-    <textarea name="subtitleLineInput" id="currline" cols="35" rows="5"
-        placeholder="Write your subtitle for spedified time frame"></textarea>
-    <br />
-    <button class="btn btn-primary" onclick="addSubtitle()">Add Line</button>
-    <br />
-
 
 </div>

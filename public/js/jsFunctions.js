@@ -10,7 +10,7 @@ function handleRequest(tbodyList) {
                     let video = element.videofilename;
                     let subtitle = element.subtitlefilename;
 
-                    let childElement = `<tr> <td> ${name} </td> <td><video preload='auto' controls width='320' height='240' crossorigin="anonymous"> <source src= "public/videos/${video}" />; Your browser doest not support video tag <track default kind="captions" srclang="en" src="public/subtitles/${subtitle}" /> </td> </tr>`
+                    let childElement = `<tr> <td> ${name} </td> <td><video preload='auto' controls width='320' height='240' crossorigin="anonymous"> <source src= "public/videos/${video}" />; Your browser doest not support video tag <track default kind="subtitles" srclang="en" src="public/subtitles/${subtitle}" /> </td> </tr>`
 
                     tbodyList.innerHTML += childElement;
 
