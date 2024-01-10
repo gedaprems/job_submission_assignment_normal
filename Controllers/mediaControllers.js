@@ -27,7 +27,7 @@ exports.create = async (req,res) =>{
             subtitlefilename: subtitleFileName
         })
 
-        res.status(200).json({message: "Media created succesffully ", createMedia});
+        res.redirect('/');
     }catch(err){
         console.log(err);
         res.status(400).json(err);
