@@ -1,8 +1,14 @@
+require('dotenv').config();
+
 const mediaModel = require('../Models/mediaModel');
-const path = require('path')
-const fs = require('fs')
-const cors = require('cors')
-const multer = require('multer')
+const cloudinary = require('cloudinary').v2;
+
+
+// cloudinary.config({ 
+//     cloud_name: process.env.CLOUD_NAME, 
+//     api_key: process.env.API_KEY, 
+//     api_secret: process.env.API_SECRET 
+//   });
 
 exports.getAll = async (req,res) =>{
     try{
@@ -19,6 +25,26 @@ exports.getAll = async (req,res) =>{
 exports.create = async (req,res) =>{
     const {name,subtitleFileName} = req.body;
     const video = req.file;
+
+    const file = "./public/videos/"+video.filename;
+
+    // cloudinary connections 
+    
+    // try{
+    //     cloudinary.uploader.upload_large(file,
+    //         {resource_type: 'video'},
+    //         function(error,result){
+    //             if(error){
+    //                 console.log(error);
+    //             }
+    //             console.log(result.secure_url);
+    //         });
+    // }
+    // catch(error){
+    //     console.log(error);
+    // }
+
+    
     
     try{    
         const createMedia = await mediaModel.create({

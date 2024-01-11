@@ -15,16 +15,16 @@
 
     <div >
         <p id="scriptError" class="error"></p>
-        <div class="timeInputs" id="timeRange">
-            <input type="text" id='startHH' maxlength="2" class="sec" required /> : <input type="text" class="sec" id='startMM'
+        <div class="timeInputs row" id="timeRange">
+            <input type="text" id='startHH' maxlength="2" class="sec col-md-1" required /> : <input type="text" class="sec col-md-1" id='startMM'
                maxlength="2" required /> :
-            <input type="text" id='startSS' maxlength="2" class="sec" required /> . <input type="text" id='startMS'
-                 maxlength="3" class="milisec " required />
+            <input type="text" id='startSS' maxlength="2" class="sec col-md-1" required /> . <input type="text" id='startMS'
+                 maxlength="3" class="milisec col-md-1 " required />
             &nbsp;--&gt;&nbsp;
-            <input type="text" id='endHH' maxlength="2" class="sec " required /> : <input type="text" id='endMM'
-                 maxlength="2" class="sec " required />
-            : <input type="text" id='endSS' maxlength="2" class="sec " required /> . <input type="text" id='endMS'
-                 maxlength="3" class="milisec " required />
+            <input type="text" id='endHH' maxlength="2" class="sec  col-md-1" required /> : <input type="text" id='endMM'
+                 maxlength="2" class="sec col-md-1" required />
+            : <input type="text" id='endSS' maxlength="2" class="sec col-md-1" required /> . <input type="text" id='endMS'
+                 maxlength="3" class="milisec col-md-1" required />
             &nbsp;&nbsp;&nbsp; <button class="btn btn-primary" onclick="addSubtitle()">Add</button>
         </div>
         <textarea name="subtitleLineInput" class="form-control" id="currline" cols="35" rows="5"

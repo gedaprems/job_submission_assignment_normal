@@ -16,22 +16,7 @@ function handleRequest(tbodyList) {
 
                 });
 
-            }
-            // { medias && medias.map(media =>{
-                
-            //         <tr>
-            //             <td>{media.name}</td>
-            //             <td>{media.videos.map(video =>{
-            //                 {console.log(video)}
-            //                 return (
-            //                     <video preload='auto' controls width='320' height='240' crossorigin="anonymous">
-            //                         <source src= {`${BACKEND_URI}${video}`} />; Your browser doest not support video tag
-            //                         <track default kind="captions" srclang="en" src={`${BACKEND_URI}/public/subtitle/subtitle.vtt`} />
-            //                     </video>
-            //                 )
-            //             })}</td>
-            //         </tr>
-            // })} 
+            } 
             console.log(response.data[0].name);
         });
 }
@@ -70,76 +55,83 @@ function addSubtitle() {
     const scriptError = document.getElementById("scriptError");
 
     // Start time
-    // if(!checkHour(startHH)){
+    // if(checkHour(startHH)){
+    //     scriptError.innerHTML = checkHour(strartHH);
+    // }
+    // else if(!checkMinSec(startMM,true)){
     //     return;
     // }
-    // if(!checkMinSec(startMM,true)){
+    // else if(!checkMinSec(startSS,false)){
     //     return;
     // }
-    // if(!checkMinSec(startSS,false)){
+    // else if(!checkMiliSec(startMS)){
     //     return;
     // }
-    // if(!checkMiliSec(startMS)){
+    // else if(!checkHour(endtHH)){
     //     return;
     // }
-
-    // // End time 
-    // if(!checkHour(endtHH)){
+    // else if(!checkMinSec(endMM,true)){
     //     return;
     // }
-    // if(!checkMinSec(endMM,true)){
+    // else if(!checkMinSec(endSS,false)){
     //     return;
     // }
-    // if(!checkMinSec(endSS,false)){
+    // else if(!checkMiliSec(endMS)){
     //     return;
     // }
-    // if(!checkMiliSec(endMS)){
-    //     return;
-    // }
-
-
+    // else{
     let finalStr = `${startHH}:${startMM}:${startSS}.${startMS} --> ${endHH}:${endMM}:${endSS}.${endMS}\n${currline}\n`;
     console.log(finalStr);
 
     document.getElementById("finalStr").value += finalStr + "\n";
+    // }
 
 }
 
-function checkHour(time) {
-    if (isNaN(time)) {
-        scriptError.innerHTML = "Value must be number ";
-        return false;
-    } else if (time > 23 || time < 0) {
-        scriptError.innerHTML = "Hour must be in range of 0 to 23";
-        return false;
-    } else {
-        scriptError.innerHTML = "";
-        return true;
-    }
-}
+// function checkHour(time) {
+//     if (time == ""){
+//         return "Please enter value";
+//     }
+//     else if (isNaN(time)) {
+//         return "Value must be number ";
+//         // return false;
+//     } else if (time > 23 || time < 0) {
+//         return "Hour must be in range of 0 to 23";
+//         // return false;
+//     } else {
+//         scriptError.innerHTML = "";
+//         return false;
+//     }
+// }
 
-function checkMinSec(time, isMin) {
-    if (isNaN(time)) {
-        scriptError.innerHTML = "Value must be number ";
-        return false;
-    } else if (time > 59 || time < 0) {
-        scriptError.innerHTML = (isMin ? "Min" : "Sec") + " must be in range of 0 to 59";
-        return false;
-    } else {
-        scriptError.innerHTML = "";
-        return true;
-    }
-}
+// function checkMinSec(time, isMin) {
+//     if (time == ""){
+//         scriptError.innerHTML = "Please enter value";
+//     }
+//     else if (isNaN(time)) {
+//         scriptError.innerHTML = "Value must be number ";
+//         return false;
+//     } else if (time > 59 || time < 0) {
+//         scriptError.innerHTML = (isMin ? "Min" : "Sec") + " must be in range of 0 to 59";
+//         return false;
+//     } else {
+//         scriptError.innerHTML = "";
+//         return true;
+//     }
+// }
 
-function checkMiliSec(time) {
-    if (isNaN(time)) {
-        scriptError.innerHTML = "Value must be number ";
-        return false;
-    } else if (time > 999 || time < 0) {
-        scriptError.innerHTML = "MiliSec must be in range of 0 to 999";
-        return false;
-    } else {
-        scriptError.innerHTML = "";
-        return true;
-    }
-}
+// function checkMiliSec(time) {
+//     if (time == ""){
+//         scriptError.innerHTML = "Please enter value";
+//     }
+//     else if (isNaN(time)) {
+//         scriptError.innerHTML = "Value must be number ";
+//         return false;
+//     } else if (time > 999 || time < 0) {
+//         scriptError.innerHTML = "MiliSec must be in range of 0 to 999";
+//         return false;
+//     } else {
+//         scriptError.innerHTML = "";
+//         return true;
+//     }
+// }
